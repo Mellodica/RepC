@@ -2,7 +2,8 @@
 //
 
 #include <stdio.h>
-#define pi 3.14 
+#define pi 3.14
+#define p 9.8
 
 int main(int argc, char** argv[])
 {
@@ -98,9 +99,42 @@ int main(int argc, char** argv[])
     printf("\n Aluno B: %.1f e %.1f", notas[1][0], notas[1][1]);
     printf("\n Aluno C: %.1f e %.1f", notas[2][0], notas[2][1]);
 
+    //int cha = 12.50;
+
+    //printf("\n %d", cha);
+    printf("\n");
+    //int para = 0;
+
+    //scanf_s("%f", &para);
+
+    //printf("\n %d", para);
+    //printf("\n %f", para);
+        
+    printf("\n Tamanho define %f", sizeof(p));
+
 
 
     printf("\n\n\n");
+
+
+    int idade1 = 0;
+    int idade2 = 0;
+
+    int resultado = 0;
+
+    printf("\n Digite a primeira Idade: ");
+    scanf_s("%d",&idade1);
+    printf("\n Ditite a segunda Idade: ");
+    scanf_s("%d", &idade2);
+
+    resultado = idade1 + idade2;
+
+    printf("\n Resultado: %d", resultado);
+
+
+
+    printf("\n\n\n");
+
     return 0;
 
 
