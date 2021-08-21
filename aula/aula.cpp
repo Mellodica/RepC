@@ -2,6 +2,9 @@
 //
 
 #include <stdio.h>
+#include <stdlib.h>
+#include <ctype.h>
+#include <string.h>
 #define pi 3.14
 #define p 9.8
 
@@ -28,7 +31,7 @@ int main(int argc, char** argv[])
     float soma = pi + g;
     printf("\n Soma de Pi e G %f", soma);
     printf("\n Local %x", &soma); //referencia de memoria
-    printf("\n\n\n\n\n\n");    
+    //printf("\n\n\n\n\n\n");    
 
     
     //float valor1 = 0, valor2 = 0;
@@ -67,8 +70,8 @@ int main(int argc, char** argv[])
     scanf_s("%s", bola);
     printf("\n Nome digitado: %s", bola);
     */
-    printf("\n\n\n");
-
+    //printf("\n\n\n");
+/*
     char frase[101];
     printf("\n Digite uma frase: ");
 
@@ -130,11 +133,55 @@ int main(int argc, char** argv[])
     resultado = idade1 + idade2;
 
     printf("\n Resultado: %d", resultado);
+    
+    printf("\n\n\n");
+
+    char nome[30];
+    int i = 0;
+    printf("\n Digite o nome da Pessoa: ");
+    fflush(stdin);
+    fgets(nome, 30, stdin);
 
 
+    printf(nome,"\n");
+
+
+    //strlen, nome[i], 
+
+    for (i; i < strlen(nome); i++) {
+        //printf("%c", nome[i]);        
+        nome[i] = toupper(nome[i]);
+        printf("%c", nome[i]);
+        
+    }
+    printf("\nTamanho %d", sizeof(nome));
+    
+    printf("\n",nome);
+    */
+
+
+    int matriz[2][3];
+    int coluna = 0;
+    int linha = 0;
+
+    for (linha = 0; linha <= 2; linha++){
+        for (coluna = 0; coluna <= 3; coluna++) {
+            printf("\n Digite valores de linha %d e coluna %d: -> :", linha+1, coluna+1);
+            scanf_s("%d", &matriz[linha][coluna]);
+        }
+    }
+
+    for (linha = 0; linha <= 2; linha++) {
+        for (coluna = 0; coluna <= 3; coluna++)
+        {
+            printf("\n %d", matriz[linha][coluna]);
+        }
+
+    }
 
     printf("\n\n\n");
 
+    system("pause");
     return 0;
 
 
