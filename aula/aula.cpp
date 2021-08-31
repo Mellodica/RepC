@@ -8,9 +8,14 @@
 #define pi 3.14
 #define p 9.8
 
+struct automovel {
+    char modelo[20];
+    int ano;
+};
+
 int main(int argc, char** argv[])
 {
-    
+    /*
     short int idade = 18;
     float salario = 7500;
     double qtd_atomos = 12345;
@@ -54,7 +59,7 @@ int main(int argc, char** argv[])
     //printf("\n Vetor altura[1] = %.1f", altura[1]);
     //printf("\n Vetor altura[2] = %.1f", altura[2]);
 
-
+    */
     /*
     char nome[16] = { 'J', 'O', 'A', 'O' };
     char sobrenome[31] = "Alberto";
@@ -159,7 +164,7 @@ int main(int argc, char** argv[])
     printf("\n",nome);
     */
 
-
+    /*
     int matriz[2][3];
     int coluna = 0;
     int linha = 0;
@@ -178,6 +183,153 @@ int main(int argc, char** argv[])
         }
 
     }
+    */
+
+
+//int resultado = 43 % 3;
+
+//printf("Operacao modulo 43%3 = %d", resultado);
+
+/*int n1 = 0;
+int n2 = 0;
+
+printf("Digite o primeiro numero: ");
+scanf_s("%d", &n1);
+printf("Digite o segundo numero: ");
+scanf_s("%d", &n2);
+
+printf("\n N1 e N2 sao iguais? %d", n1 == n2);
+printf("\n N1 e maior que N2? %d", n1>n2);
+printf("\n N1 e menor que N2? %d", n1<n2);
+*/
+
+/*int a = 5, b = 10, c = 5;
+
+printf("\n (a==b)&&(a==c) = %d", ((a==b)&&(a==c)));
+printf("\n (a==b)||(a==c) = %d", ((a == b) || (a == c)));
+printf("\n !(a==b) || (a==c) = %d", !((a==b)||(a==c)));
+*/
+
+
+
+
+/*
+
+int ano_2014[3] = { 0 };
+
+float media_2014 = 0;
+float media_2015 = 0;
+float media_2016 = 0;
+
+
+ano_2014[0] = 16319979;
+ano_2014[1] = 4133366;
+ano_2014[2] = 658713;
+
+//scanf("%d", &ano_2014[0]);
+
+
+media_2014 = (ano_2014[0] + ano_2014[1] + ano_2014[2]) / 3;
+
+printf("\n 2014 obteve a maior media? %d", ((media_2014 > media_2015) && (media_2014 > media_2016)));
+*/
+
+//CALCULO DESCONTO
+
+/*
+int pessoas = 0;
+float valor = 0, comdesconto = 0, apagar = 0, desconto = 0;
+
+printf("Qual o numero de pessoas? \n");
+scanf_s("%d", &pessoas);
+printf("\n Qual valor da conta? \n");
+scanf_s("%f", &valor);
+printf("\n Qual desconto oferecido: \n");
+scanf_s("%f", &desconto);
+comdesconto = valor;
+
+//printf("\n Valor %x \n pessoas %d \n desconto %f", &valor, pessoas, desconto);
+
+apagar = ((comdesconto * (desconto / 100)) + valor) / pessoas;
+
+//printf("%x", &comdesconto);
+
+printf("\n O valor divido para pagamento e: %.2f R$", apagar);
+printf("\n Have good day!");
+*/
+/*
+int a = 2;
+int b = 3;
+int c = 5, resultado = 0;
+
+
+resultado = a + b * (c - b) / a;
+
+printf("\n %d", resultado);
+*/
+
+
+//struct automovel auto1;
+
+ //printf("%d", malloc(sizeof(auto1)));
+
+//ESTRUTURA DE REPETIÇÃO
+
+//TABELA IR E INSS
+//double %lf
+
+float salario, resultado, inss, ir = 0;
+float inssAliquotaUm = 7.5,
+inssAliquotaDois = 9,
+inssAliquotaTres = 11,
+inssAliquotaQuatro = 14;
+
+printf("Qual salario? \n");
+scanf_s("%f", &salario);
+
+
+
+
+if (salario < 1045.00) {
+
+    //resultado = (salario - (deducao * inssAliquotaUm));
+    inss = salario * (inssAliquotaUm / 100);
+
+}
+else if (salario >= 1045.00 || salario <= 2089.00) {
+    //resultado = (salario - (deducao * inssAliquotaDois));
+    inss = salario * (inssAliquotaDois / 100);
+
+}else if(salario >= 2089.61 || salario <= 3134.40) {
+    //resultado = (salario - (deducao * inssAliquotaTres)); 
+    inss = salario * (inssAliquotaTres / 100);
+
+}
+else if (salario >= 3050.53 || salario < 6101.06) {
+    //resultado = (salario - (deducao * inssAliquotaQuatro));
+    inss = salario * (inssAliquotaQuatro / 100);
+
+}else if(salario > 6101.06){
+
+     
+    inss = 6101.06 * (inssAliquotaQuatro / 100);
+}
+
+//liquido = 6101.06;
+//resultado = (salario - (liquido * (inssAliquotaQuatro / 100)));
+printf("%f", inss);
+resultado = (salario - inss);
+
+printf("\n Salario liquido, %.2f", resultado);
+
+
+
+
+
+
+
+
+
 
     printf("\n\n\n");
 
