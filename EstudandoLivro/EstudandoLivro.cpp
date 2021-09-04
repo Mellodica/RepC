@@ -281,7 +281,7 @@ int main()
 
     //TABELA IR E INSS
     //double %lf
-
+/*
     float salario, resultado, inss, ir, teto = 6101.06;
     float inssAliquotaUm = 7.5, inssAliquotaDois = 9, inssAliquotaTres = 11, inssAliquotaQuatro = 14;
     float irStepUm = 7.5, irStepDois = 15, irStepTres = 22.5, irStepQuatro = 27.5;
@@ -356,18 +356,286 @@ int main()
         }
     }
 
+    */
+/*
+int segunda = 2, terca = 3, quarta = 4, quinta = 5, sexta = 6, sabado = 0, domingo = 1;
+int escolha;
 
+printf("\n Qual dia da semana?");
+scanf_s("%d", &escolha);
 
-
-
-
-
-
-
-
-
-    printf("\n\n\n");
-
-    system("pause");
+switch (escolha)
+{
+    case 0:
+        printf("\n Hoje sabado nao ha descontos");
+        break;
+    case 1:
+        printf("\n Domingo, ganha-se um refrigerante!");
+        break;
+    case 2:
+        printf("\n Segunda feira, hoje o desconto na compra de uma pizza, é de 30 por cento!! ");
+        break;
+    case 3:
+        printf("\n Terca feira, desconto de 40 por cento no valor da pizza!!! ");
+        break;
+    case 4:
+        printf("\n Quarta feira, hoje na compra de uma pizza, ganhe outra!");
+        break;
+    case 5:
+        printf("\n Quinta feira, desconto de 20 por cento na pizza!");
+        break;
+    case 6:
+        printf("\n Sexta feira, desconto de 10 por cento na pizza!");
+        break;
+default:
+    printf("\n Valor informado, nao conrresponde a um dia da semana!");
+    break;
 }
+
+
+*/
+
+//Problema de Collatz
+/*
+int num, i;
+
+
+printf("Digite um numero para o Problema de Collatz \n");
+scanf_s("%d", &num);
+i = 0;
+
+while (num > 1) {
+    if (num % 2 == 0) {
+        num /= 2;
+    }
+    else {
+        num = num*3 + 1;
+    }
+    i++;
+    printf("\n resultado do problema: %d, numero de voltas: %d", num, i);
+    
+}
+
+//printf("\n resultado do problema: %d, numero de voltas: %d", num, i);
+*/
+//Exemplo Soffner
+/*
+float soma = 0, valor;
+int opcao;
+
+do {
+    printf("\n \n\nDigite uma Operacao\n");
+    printf("\n 1. Deposito");
+    printf("\n 2. Saque");
+    printf("\n 3. Saldo");
+    printf("\n 4. Sair");
+
+    printf("\n Opcao? \n");
+    scanf_s("%d", &opcao);
+
+    switch (opcao) {
+        case 1:
+            printf("\n Valor do deposito? \n");
+            scanf_s("%f", &valor);
+            soma += valor;
+            break;
+
+        case 2:
+            printf("\n Valor do saque? \n");
+            scanf_s("%f", &valor);
+            soma -= valor;
+            break;
+
+        case 3:
+            printf("\n Saldo atual R$ %.2f", soma);
+            break;
+
+        default:
+            if (opcao != 4) {
+                printf("\n Opcao Invalida! \n");
+            }
+
+
+    }
+} while (opcao != 4);
+
+printf("\n\n Fim das operacoes. ");
+*/
+/*
+int nota, cont = 0, soma = 0;
+char letra;
+float media;
+
+do {
+    printf("\n\n Digite uma nota para avaliacao: ");
+    scanf_s("%d", &nota);
+    fflush(stdin);
+    cont++;
+    soma += nota;
+    printf("\n\n Digite [n] para para sair.\t");
+    //scanf_s("%c", &letra);
+
+} while (letra = getchar() != 'n');
+printf("\n Quantidade de Avaliacao: %d, soma das notas: %d", cont, soma);
+media = soma / cont;
+printf("\n A media das notas e: %.0f", media);
+*/
+/*
+int i;
+ do
+ {
+     printf("\n\n INFORMACAO NUTRICIONAL DO SORVETE \n\n");
+          
+     printf("\n\n Digite um numero que corresponde ao saber desejado\n\n");
+     printf("\t(1)...flocos\n");
+     printf("\t(2)...morango\n");
+     printf("\t(3)...leite condensado\n\n");
+     scanf_s("%d", &i);
+
+ } while ((i < 1) || (i > 3));
+
+         switch (i) {
+         case 1:
+             printf("\t\t Voce escolheu flocos.\n");
+             break;
+
+         case 2:
+             printf("\t\t Voce escolheu morango.\n");
+             break;
+
+         case 3:
+             printf("\t\t Voce escolheu leite condensado.\n");
+             break;
+         }
+*/
+
+/*
+int x, y;
+
+for (x = 10, y = 0; x >= 0, y <= 10; x--, y++) {
+    printf("\n X: %d / Y: %d", x, y);
+}
+*/
+
+/*
+int contador;
+
+printf("Digite um numero para contagem regressiva");
+scanf_s("%d", &contador);
+
+for (contador; contador >= 1; contador--) {
+    printf("\n Tempo em: %d", contador);
+}
+*/
+/*
+int w;
+
+for (w = 1; w <= 15; w++) {
+    if (w == 8) {
+        break;
+    }
+
+    printf("\n contagem em : %d", w);
+}
+*/
+/*
+int num[5];
+printf("Entre com um numero \n");
+scanf_s("%d", &num[0]);
+
+printf("O valor digitado foi: %d", num[0]*2);
+*/
+/*
+int numero, i, posicao = 0, vetor[10];
+
+printf("Entre com o numero de ate 3 casas diferente de zero, a ser procurado em um vetor");
+scanf_s("%d", &numero);
+
+for (i = 0; i <= 10;i++) {
+    printf("\n Entre com o numero para posicao %01d: ", i+1);
+    scanf_s("%d", &vetor[i]);
+}
+while (vetor[posicao] != numero) {
+    posicao++;      
+}
+for (i = 0; i < 10; i++) {
+    printf("%01d ", vetor[i]);
+}
+printf("\n");
+for (i = 0; i < posicao; i++) {
+    printf("   ");
+}
+printf("*");
+*/
+
+/*
+int i;
+for (i = 1; i <= 100; i++) {
+    if (i==30) {
+        printf("\n Fim Laco!");
+        break;
+        
+    }
+    else {
+        if (i%2==1) {
+            continue;
+        }
+        else {
+            printf("\n Numero: %2d", i);            
+        }
+        
+    }
+
+}
+*/
+
+/*
+int  linha, coluna;
+int matriz[3][3];
+
+for (linha = 0; linha < 3; linha++) {
+    for (coluna = 0; coluna < 3; coluna++)
+    {
+        printf("\n Entre com valor da linha %d e coluna %d: ", linha, coluna);
+        scanf_s("%d", &matriz[linha][coluna]);
+    }
+}
+
+for (linha = 0; linha <= 2; linha++)
+{
+    for (coluna = 0; coluna <= 2; coluna++) {
+        printf("\n Matriz[%d][%d]: %d", linha, coluna, matriz[linha][coluna]);
+    }
+}
+
+*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ printf("\n\n\n");
+
+ system("pause");
+ return 0;
+ }
+
+
+    
+
+
+
+
 
