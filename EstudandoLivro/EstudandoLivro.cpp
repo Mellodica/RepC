@@ -15,6 +15,32 @@ struct automovel {
 };
 */
 
+
+int max_of_four(int a, int b, int c, int d) {
+    if (a > b && a > c && a > d) {
+        return a;
+    }
+    else if (b > a && b > c && b > d) {
+        return b;
+    }
+    else if (c > a && c > b && c > d) {
+        return c;
+    }
+    else {
+        return d;
+    }
+}
+
+void update(int* a, int* b) {
+    // Complete this function
+    int t1, t2;
+    t1 = *a + *b;
+    t2 = abs(*a - *b);
+    *a = t1;
+    *b = t2;
+}
+
+
 int main()
 {
     std::cout << "Hello World!\n";
@@ -609,6 +635,209 @@ for (linha = 0; linha <= 2; linha++)
 }
 
 */
+/*
+int Matriz[31][31], i, j, ordem = 0, quadrado_da_ordem = 0, linha = 0, coluna = 0, soma = 0;
+
+printf("Qual a ordem do quadrado magico ? (deve ser um numero impar positivo) \n");
+scanf_s("%d", &ordem);
+
+
+//encerra o programa se a ordem for par (pois so funciona para numeros impares)
+if (ordem % 2 == 0 || ordem <= 0)
+{
+
+    printf("Tem que ser numero impar positivo \n");
+    return(0);
+}
+quadrado_da_ordem = ordem * ordem;
+
+
+printf("\n Quantidade de numero no Quadrado Magico : %d", quadrado_da_ordem);
+
+
+//calculo da posicao inicial (onde vai o numero “1”).
+
+// Quando a ordem e diferente de 1, sera sempre na penultima coluna e na ultima linha.
+if (ordem == 1)
+{
+    linha = 0;
+    coluna = 0;
+}
+else
+{
+    linha = ((ordem + 1) / 2) - 1;
+    coluna = ordem - 1;
+}
+//Loop de loop para zerar a Matriz 
+for (i = 0; i < ordem; i++)
+{
+    for (j = 0; j < ordem; j++)
+    {
+        Matriz[i][j] = 0;
+    }
+
+
+
+    //Preenchendo a Matriz com os valores do Quadrado Magico
+    for (i = 1; i <= quadrado_da_ordem; i++)
+    {
+        Matriz[linha][coluna] = i;
+
+        //se estamos na ultima coluna, voltamos a coluna “0”, do contrario, 
+        //vamos uma coluna a frente.
+
+
+        if (coluna == ordem - 1) { coluna = 0; }
+        else { coluna++; }
+
+
+
+        // se estamos na primeira linha, vamos a ultima coluna (ordem-1), 
+        //do contrario, vamos uma linha atras
+
+
+        if (linha == 0) { 
+            linha = ordem - 1; 
+        }
+        else
+        {
+            linha--;
+        }
+
+
+        //Se a proxima posição ja esta¡ ocupada (e diferente de “0”), devemos ocupar a posicao
+
+
+        //do lado esquerdo da ultima posicao preenchida.
+
+
+        //Caso contrario, devemos preencher a posição acima e a direita
+       //da ultima posição preenchida.
+        if (Matriz[linha][coluna] != 0)
+        {
+
+            if (coluna == 0) {
+                coluna = ordem - 2;
+            }
+            else { coluna = coluna - 2; }
+
+
+
+            if (linha == ordem - 1) { linha = 0; }
+            else {
+                linha++;
+            }
+        }
+    }
+
+    printf("\nO quadrado magico de %d x %d e: ", ordem, ordem);
+
+    //Loop de loop para imprimir a Matriz 
+    for (i = 0; i < ordem; i++)
+    {
+        for (j = 0; j < ordem; j++)
+        {
+            printf("%d", Matriz[i][j]);
+        }
+        printf("\n");
+    }
+
+
+    //Loop para calcular a soma de linhas, colunas e da diagonal principal do Quadrado magico.
+    for (i = 0; i < ordem; i++)
+    {
+        soma += Matriz[i][i];
+    }
+
+
+    printf("A soma de cada linha, de cada coluna ou da diagonal principal e: %d", soma);
+    
+}
+
+*/
+/*
+char nome[30];
+int contador = 0;
+
+
+printf("Digite o seu nome: ");
+//scanf_s("%c", &nome);
+fflush(stdin);
+fgets(nome, 30, stdin);
+
+for (int i = 0; i <= strlen(nome); i++) {
+    nome[i] = toupper(nome[i]);
+    contador++;
+}
+
+printf("Numero de Caracteres: %d, nome: %s", contador, nome);
+*/
+/*
+int d, i = 9, maxi, maxp;
+
+maxi = i - 1;
+maxp = maxi * maxi;
+
+while (i >= 0) {
+    d = i;
+    d = d*d;
+    if (d >= 0 && d <= maxp) {
+       
+        printf("\n %d", d);
+    }
+
+    i -= 1;
+}
+*/
+/*
+bool bissexto = false;
+int ano;
+
+printf("Ano: ");
+scanf_s("%d", &ano);
+
+if (ano % 4 == 0 && (ano % 100 != 0 || ano % 400 == 0)) {
+    bissexto = true;
+}
+else {
+    bissexto = false;
+}
+
+printf("\n Ano: %d, Bisexto: %d", ano, bissexto);
+*/
+
+//the command is scanf("%d %d", &n, &m)
+
+
+
+//O Maior Valor 
+/*
+    int a, b, c, d;
+    scanf_s("%d %d %d %d", &a, &b, &c, &d);
+    int ans = max_of_four(a, b, c, d);
+    printf("%d", ans);
+*/
+/*
+int a, b;
+int *pa = &a, *pb = &b;
+a = 4;
+b = 5;
+//scanf("%d %d", &a, &b);
+update(pa, pb);
+printf("%d\n%d", a, b);
+*/
+//abs retorna um número sempre positivo
+
+
+
+
+
+
+
+
+
+
+
 
 
 
