@@ -6,6 +6,8 @@
 #include <stdlib.h>
 #include <ctype.h>
 #include <string.h>
+
+
 #define pi 3.14
 #define p 9.8
 /*
@@ -15,6 +17,42 @@ struct automovel {
 };
 */
 
+int gerarSenha() {
+    char frase[40];
+    int i, cont = 0;
+
+    printf("\n Digite uma frase para gerar sua senha: ");
+    fflush(stdin);
+    fgets(frase, 40, stdin);
+
+    for (i = 0; i <= sizeof(frase); i++) {
+        if (frase[i]=='a' || frase[i] == 'e') {
+            cont++;
+        }
+    }
+
+    srand(cont);
+    return rand() % 90 * rand();
+}
+
+
+float qualPeso(float alt, float larg, float compr) {
+    return (alt * larg * compr) * 25;
+}
+
+int* alocar(){
+    return (int*)malloc(200);
+}
+
+int* gerarRandomico() {
+    static int r[10];
+    int a;
+    for (a = 0; a < 10; a++) {
+        r[a] = rand();
+        printf("r[%d] = %d\n", a, r[a]);
+    }
+    return r;
+}
 
 int max_of_four(int a, int b, int c, int d) {
     if (a > b && a > c && a > d) {
@@ -41,7 +79,7 @@ void update(int* a, int* b) {
 }
 
 
-int main()
+int main(int argc, char *argv[])
 {
     std::cout << "Hello World!\n";
 
@@ -829,15 +867,89 @@ printf("%d\n%d", a, b);
 //abs retorna um número sempre positivo
 
 
+//LIMPEZA DE SIMBOLOS
+
+/*
+char cpf1[15];
+char cpf2[12];
+int i = 0, n = 0;
+
+printf("\n Digite seu CPF na forma: NNN.NNN.NNN-NN!\n");
+//fflush(stdin);
+fgets(cpf1, 15, stdin);
+
+for (i = 0; i <= sizeof(cpf1); i++) {
+
+    if (cpf1[i] == '.' || cpf1[i]=='-') {
+        continue;
+    }
+    else {
+        cpf2[n] = cpf1[i];
+        printf("\n %d", n);
+        n++;        
+    }
+    
+}
+printf("\n\n CPF formatado: %s, N: %d", cpf2, sizeof(cpf2));
+*/
+
+/*
+
+int *v;
+int i;
+
+v = gerarRandomico();
+for (i = 0; i < 10; i++) {
+    printf("\nv[%d] = %d", i, *(v+i));
+}
+*/
+/*
+
+int *memoria;
+
+memoria = alocar();
+
+if (memoria != NULL) {
+    printf("Endereco de memoria alocado: %x", memoria);
+}
+else {
+    printf("Memoria não alocada");
+}
+*/
+
+//PESO DA COLUNA P = VR (R = 25 Kn)
+/*
+float peso;
+float altura, largura, comprimento;
+
+
+printf("\n Digite a Altura, a Largura e o Comprimento! \n");
+scanf_s("%f %f %f", &altura,  &largura, &comprimento);
+
+peso = qualPeso(altura, largura, comprimento);
 
 
 
+//printf("\n %f", peso);
+if (peso <= 500) {
+    printf("\n Guindaste: G1");
+}
+else if (peso > 1500) {
+    printf("\n Guindaste: G3");
+}
+else {
+    printf("\n Guindaste: G2");
+}
 
+*/
 
+//Senha
+/*
+int senha;
 
-
-
-
+senha = gerarSenha();
+printf("\n Sua senha: %d", senha);
+*/
 
 
 
