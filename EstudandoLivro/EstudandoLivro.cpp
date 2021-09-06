@@ -17,6 +17,25 @@ struct automovel {
 };
 */
 
+
+int somar(){
+    return 2 + 3.23;
+}
+
+
+int* retornarVetor() {
+    static int v[10];
+    int a;
+    for (a = 0; a < 10; ++a) {
+        //printf("A: %d, V: %d\n", a);
+        v[a] = 2 * a;
+        printf("A: %d\n", v[a]);
+    }
+    //printf("%d", v);
+    return v;
+}
+
+
 int gerarSenha() {
     char frase[40];
     int i, cont = 0;
@@ -950,14 +969,21 @@ int senha;
 senha = gerarSenha();
 printf("\n Sua senha: %d", senha);
 */
+/*
+int resultado = 0;
+resultado = somar();
+printf("O resultado da funcao e = % d", resultado);
+*/
 
 
+/*
 
+int* po;
+po = retornarVetor();
+printf("Valor = %d", *(po + 2));
 
-
-
-
-
+//Retorna a referencia do arrai na posição v[2]
+*/
 
 
 
