@@ -6,6 +6,7 @@
 #include <stdlib.h>
 #include <ctype.h>
 #include <string.h>
+#include <math.h>
 
 
 #define pi 3.14
@@ -18,8 +19,205 @@ struct automovel {
 */
 
 
-int somar(){
-    return 2 + 3.23;
+struct produto {
+    char produto[20];
+    char mercado[20];
+    float valor;
+    struct produto* anterior;
+    struct produto* proximo;
+};
+
+typedef struct produto Pesquisa;
+
+Pesquisa* inicializarPesquisa(void) {
+    return NULL;
+}
+
+Pesquisa* inserirPesquisa(Pesquisa* pesquisa, char* prod, char* merc, float valor) {
+    Pesquisa* novo = (Pesquisa*)malloc(sizeof(Pesquisa));
+
+    strcpy_s(novo->produto, prod);
+    strcpy_s(novo->mercado, merc);
+    novo->valor = valor;
+    novo->proximo = pesquisa;
+    novo->anterior = NULL;
+
+    if (pesquisa != NULL) {
+        pesquisa->anterior = novo;
+    }
+
+    return novo;
+}
+
+void imprimirPesquisa(Pesquisa* lista) {
+    Pesquisa* pesquisa;
+
+    printf("\n **** LISTA DE PESQUISAS ****");
+    for (pesquisa = lista; pesquisa != NULL; pesquisa = pesquisa->proximo) {
+        printf("\n\tProduto-> %sMercado-> %sValor-> %.2f", pesquisa->produto, pesquisa->mercado, pesquisa->valor);
+    }
+}
+
+struct listaProd {
+    int codigo;
+    char produto[30];
+    struct listaProd* proximo;
+};
+typedef struct listaProd Produtos;
+
+Produtos* inicializar(void) {
+    return NULL;
+}
+
+Produtos* inserir(Produtos* lista, int cod, char* nomepropduto) {
+    Produtos* novo = (Produtos*)malloc(sizeof(Produtos));
+
+    novo->codigo = cod;
+    strcpy_s(novo->produto, nomepropduto);
+    novo->proximo = lista;
+    return novo;
+}
+
+void imprimir(Produtos* lista) {
+    Produtos* prod;
+
+    printf("\n*** Lista Produtos ***\n\n");
+
+    for (prod = lista; prod != NULL; prod = prod->proximo) {
+        printf("\n Produto ID -> %d, Produto Nome -> %s ", prod->codigo, prod->produto);
+    }    
+}
+
+Produtos* retira(Produtos* lista, int cod) {
+    Produtos* anterior = NULL;
+
+    Produtos* prod = lista;
+    while (prod != NULL && prod->codigo != cod) {
+        anterior = prod;
+        prod = prod->proximo;
+    }
+
+    if (prod == NULL) {
+        return lista;
+    }
+    if (anterior == NULL) {
+        return lista;
+    }
+    else {
+        anterior->proximo = prod->proximo;
+    }
+
+    return lista;
+}
+
+Produtos* busca(Produtos* lista, int cod) {
+    Produtos* prod;
+
+    for (prod = lista; prod != NULL; prod = prod->proximo) {
+        if (prod->codigo == cod) {
+            return prod;
+        }
+    }
+    return NULL;
+}
+
+int calcularMDC(int a, int b) {
+    int r = a % b;
+    if (r == 0) {
+        return b;
+    }
+    else {
+        return calcularMDC(b, r);
+    }
+}
+/*
+float calcularRaiz(float n, float raizAnterior) {
+    float raiz;
+
+    raiz = (pow(raizAnterior, 2) + n) / (2 * raizAnterior);
+    if (fabs(raiz - raizAnterior) < 0.001) {
+        return raiz;
+    }
+    else {
+        return calcularRaiz(n, raiz);
+    }
+}
+*/
+
+int fatorial(int valor) {
+    if (valor != 1) { //critério de parada
+        return valor * fatorial(valor - 1); //chamada recursiva
+    }
+    else {
+        return valor;
+    }
+}
+
+int somarTudo(int valor) {
+    if (valor != 0) {
+        return valor + somarTudo(valor - 1); //chamada recursiva
+    }
+    else {
+        return valor;
+    }
+}
+
+int pensar(int a, int b) {
+    a = 11;
+    b = 12;
+    return 0;
+}
+
+void calcularPlano(float valor, int tempo) {
+    if (tempo > 23) {
+        printf("\n Valor de rendimento apos %d meses: %.2f", tempo,(valor * 0.02 * tempo));
+    }
+    if (tempo < 24 ) {
+        printf("\n valor de rendimento apos %d meses:%.2f", tempo ,(valor * 0.008 * tempo));
+    }
+
+}
+/*
+void calcularMassa() {
+    float massaA = 321.43;
+    float massaB = 150.72;
+
+    printf("\n Protecao A: %f", (1.2 * massaA)+(1.0*massaB));
+    printf("\n Protecao B: %f", (1.4*massaA)+(1.0*massaB));
+    printf("\n Protecao C: %f", (1.0*massaA)+(1.6*massaB));
+}
+*/
+/*
+void inserir(int a[]) {
+    int i = 0;
+    for (i = 0; i < sizeof(a)-1; ++i)
+    {
+        printf("Digite o valor %d: ", i);
+        scanf_s("%d", &a[i]);
+    }
+}
+*/
+/*
+void imprimir(int b[]) {
+    int i = 0;
+    for (i = 0; i < sizeof(b)-1; ++i) {
+        printf("\n numeros[%d] = %d", i, 2*b[i]);
+    }
+}
+*/
+
+int testar(int* n1, int* n2) {
+    *n1 = -1; // para acessar o conteudo *
+    *n2 = -2;
+
+    printf("\n\n Valores dentro da Funcao testar: ");
+    printf("\n N1: %d e N2: %d", *n1, *n2);
+
+    return 0;
+}
+
+float somar(float a, int b){
+    return a + b;
 }
 
 
@@ -985,9 +1183,155 @@ printf("Valor = %d", *(po + 2));
 //Retorna a referencia do arrai na posição v[2]
 */
 
+//Passagem por referencia
+/*
+int n1 = 10;
+int n2 = 20;
+printf("\n Valores antes da chamada da funcao: ");
+printf("\n N1: %d e N2: %d", n1, n2);
+
+testar(&n1, &n2);
+
+printf("\n\n Valores depois de chamar a funcao: ");
+printf("\n N1: %d e N2: %d", n1, n2);
+*/
+
+//Passagem por Referencia VETOR
+/*
+int numeros[3];
+
+printf("\n Preenchendo o vator... \n");
+
+inserir(numeros);
+printf("\n Dobro dos valores...");
+imprimir(numeros);
+*/
+
+//calcularMassa();
+
+/*
+float valor;
+char plano;
+int tempo;
 
 
+printf("\n Qual valor deseka investir: \n");
+scanf_s("%f", &valor);
+printf("\n Tempo de investimento em meses: \n");
+scanf_s("%d", &tempo);
 
+
+if (tempo > 12) {
+    calcularPlano(valor, tempo);
+}
+else {
+    printf("\n Dados informados incorretos:");        
+}
+*/
+/*
+float a;
+
+a = somar(12.3, 2);
+
+printf(" Somar: %f", a);
+*/
+/*
+int a = -11;
+int b = -12;
+pensar(a, b);
+printf("\n a = %d e b = %d", a, b);
+*/
+
+/*
+int n, resultado;
+
+printf("\n Digite o numero inteiro e positivo: ");
+scanf_s("%d", &n);
+
+resultado = somarTudo(n);
+
+printf("\n Resultado da soma de todos abaixo de %d, total: %d", n, resultado);
+*/
+/*
+int n, resultado;
+printf("\n Digite um numero inteiro positivo: ");
+scanf_s("%d", &n);
+resultado = fatorial(n);
+printf("\n Resultado do fatorial = %d", resultado);
+*/
+/*
+float numero, raiz;
+
+printf("\n Digite um numero para calcular a raiz: ");
+scanf_s("%f", &numero);
+
+raiz = calcularRaiz(numero, numero/2);
+
+printf("\n Raiz quadrada funcao: %f", raiz);
+*/
+
+//MDC
+
+/*
+int *s;
+
+s = (int*)malloc(sizeof(int));
+
+if (!s) {
+    printf("Erro de memoria insuficiente");
+}
+else {
+    printf("Memoria alocada com sucesso %d, %x", s);
+}
+*/
+
+//Lista Ligada
+
+/*
+int cont;;
+char nomeproduto[30];
+
+Produtos* listaProdutos;
+
+listaProdutos = inicializar();
+
+for (cont = 0; cont < 3; cont++) {
+    printf("\n Informe o codigo do Produto: ");
+    fgets(nomeproduto, 30, stdin);
+
+    listaProdutos = inserir(listaProdutos, cont, nomeproduto);
+}
+
+
+imprimir(listaProdutos);
+*/
+
+//Pesquisa Mercado
+
+char produto[20], mercado[20];
+int cont;
+float valor;
+
+Pesquisa* pesquisaMercado;
+
+pesquisaMercado = inicializarPesquisa();
+
+for (cont = 0; cont < 2; cont++)
+{
+    
+    printf("\n Digite o nome do produto-> ");
+    fflush(stdin);
+    fgets(produto, 20, stdin);
+    printf("\n Digite o Mercado-> ");
+    fflush(stdin);
+    fgets(mercado, 20, stdin);
+    printf("\n Digite O valor do produto R$->");
+    scanf_s("%f", &valor);
+
+    pesquisaMercado =  inserirPesquisa(pesquisaMercado, produto, mercado, valor);
+}
+
+imprimirPesquisa(pesquisaMercado);
 
 
 
